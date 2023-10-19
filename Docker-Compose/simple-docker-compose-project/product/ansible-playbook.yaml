@@ -21,7 +21,7 @@
       command: docker run -d --name py-container -p 5003:80 python-img
 
     - name: create image tag
-      command: docker tag python-img triple3a/test
+      command: docker tag python-img gastonjacob/test
 
     - name: push image to dockerhub
-      command: docker push triple3a/test
+      command: docker push gastonjacob/test
