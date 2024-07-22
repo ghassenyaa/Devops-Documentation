@@ -1,0 +1,22 @@
+pipeline {
+   
+     agent any
+     stages {
+        stage("Build") {
+            steps {
+                echo 'build '
+                echo env.BRANCH_NAME
+                sh 'echo "REACT_APP_BASE_URL=https://stagingcommentappapi.softylines.com/api/v1" > .env'
+                sh "sudo npm install"
+                sh "sudo npm run build"
+            }
+        }
+        stage("Deploy") {
+            steps {
+                echo 'deploy '
+                sh "sudo rsync -avzu -P -O   /var/lib/jenkins/workspace/commentplugin-staging/dist root@5.196.27.211:/var/www/jenkins/commentplugin/"
+                echo ' Copy finished '
+            }
+        }
+    }
+}
