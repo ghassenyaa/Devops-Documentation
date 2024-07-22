@@ -1,5 +1,7 @@
 # Deploy Gitlab In Ubuntu VM
 
+![alt text](gitlab.webp)
+
 
 # Install all services needed 
 apt update 
